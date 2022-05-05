@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 function Weather() {
   const value = useSelector((state) => state.weather.value);
-  return <div className="search-button">a</div>;
+  return <div className=""></div>;
 }
 
 export default Weather;

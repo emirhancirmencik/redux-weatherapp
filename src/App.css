@@ -1,9 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
 .navback{
-background-color: aqua;
-height: 150px;
+background-color: #1C2E4D;
+height: 75px;
+position: relative;
 }
 
 .search-button{
-  height: 30px;
-  width: 30px;
+  height: 50px;
+  width: 50px;
+  z-index: 1;
+  position: absolute;
+  top: calc(50% - 25px);
+  transition: 0.3s ease;
+  cursor: pointer;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+  background-color: #fff !important;
+  border-radius: 5px;
+}
+
+.search-input{
+  height: 50px;
+  width: 50px;
+  top: calc(50% - 25px);
+  position: absolute;
+  background-color: #fff !important;
+  color: #1C2E4D;
+  z-index: 0;
+  border: 0;
+  outline: none;
+  font-size: 28px;
+  padding: 15px;
+  transition: width 0.3s ease;
+  border-radius: 50px 0px 0px 50px;
+ 
+  font-family: 'Quicksand', sans-serif !important;
+  border-radius: 5px;
+  
+}
+
+.search-button.active {
+  transform: translateX(-45px);
+  border-radius: 5px 0px 0px 5px;
+  outline: none;
+}
+
+.search-input.active {
+  width: 200px !important;
+  outline: none;
+  border-radius: 0px 50px 50px 0px;
+  transition: width 0.6s ease;
+  background-color: #fff !important;
+}
+
+
+.logo{
+  margin-left: calc(50% - 25px) !important;
+}
+
+.gitlogo{
+  margin-top: 12.5px !important;
 }
