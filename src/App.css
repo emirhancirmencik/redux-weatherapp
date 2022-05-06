@@ -34,7 +34,6 @@ position: relative;
   padding: 15px;
   transition: width 0.3s ease;
   border-radius: 50px 0px 0px 50px;
- 
   font-family: 'Quicksand', sans-serif !important;
   border-radius: 5px;
   
@@ -62,3 +61,70 @@ position: relative;
 .gitlogo{
   margin-top: 12.5px !important;
 }
+
+.mybutton{
+  width: 60px;
+  height: 30px;
+  margin-top:5px;
+  padding: 0;
+  border-radius: 55px;
+  box-shadow: 0px;
+  border: 0;
+  position: relative;
+  background-color: #1C2E4D;
+}
+
+.mybutton:active{
+  box-shadow: 0px;
+  border: 0;
+  
+}
+.flag-tr{
+  margin-left:12px;
+  margin-top:-3px;
+  
+  
+}
+.flag-en{
+  margin-top:-3px;
+  margin-left:-24px;
+}
+
+.flags{
+  z-index:2;
+}
+
+.button-back{
+  position:absolute;
+  top: calc(50% - 12px);
+  margin-left: 3px;
+  z-index:1;
+  background-color: #1C2E4D;
+  width: 54px;
+  height:24px;
+  border-radius: 50px;
+  content: '';
+  border: 2px #FFF solid;
+}
+
+.button-slider{
+  position:absolute;
+  top: calc(50% - 10px);
+  margin-left: 4px;
+  z-index:3;
+  background-color: #FFF;
+  order: 2px #FFF solid;
+  width: 25px;
+  height:20px;
+  border-radius: 50px;
+  
+  content: '';
+  transition: transform 0.5s ease;
+}
+
+.button-slider.active{
+  transform: translateX(27px);
+}
+
+
+
