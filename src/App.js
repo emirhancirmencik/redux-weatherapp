@@ -1,14 +1,25 @@
 import "./App.css";
-import Weather from "./Components/Weather";
-import Navbar from "./Components/Nav/Navbar";
+import Home from "./Components/Pages/Home";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Weather />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/users" element={<Users />} />
+      </Routes>
+    </Router>
   );
+}
+
+function About() {
+  return <h2>About</h2>;
+}
+
+function Users() {
+  return <h2>Users</h2>;
 }
 
 export default App;
