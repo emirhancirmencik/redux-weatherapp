@@ -1,20 +1,37 @@
-import { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeLanguage, changeTheme } from "../../redux/weather/WeatherSlice";
+import { Link } from "react-router-dom";
+import {
+  changeLanguage,
+  changeTheme,
+  resetSearch,
+  fetchCities,
+  fetchWeather,
+} from "../../redux/weather/WeatherSlice";
 
 function Navbar() {
   const language = useSelector((state) => state.weather.language);
+  const cities = useSelector((state) => state.weather.cities);
   const theme = useSelector((state) => state.weather.theme);
   const [isSearchActive, setActive] = useState(0);
+  const [isResultActive, setResActive] = useState(0);
   const dispatch = useDispatch();
 
   const [search, setSearch] = useState("");
 
   function handleSearch(e) {
     setSearch(e.target.value);
-    console.log(search);
-    console.log(language);
   }
+
+  useEffect(() => {
+    if (search.length > 0) {
+      dispatch(fetchCities(search));
+    }
+    if (search.length === 0) {
+      dispatch(resetSearch());
+    }
+  }, [search]);
 
   function handleButton() {
     if (isSearchActive === 0) {
@@ -22,33 +39,70 @@ function Navbar() {
     } else {
       if (search.length === 0) {
         setActive(0);
+        setSearch("");
       }
     }
+  }
+
+  function handleBlur() {
+    setTimeout(function () {
+      setResActive(0);
+    }, 300);
   }
 
   return (
     <div className="navback">
       <div className="container">
         <div className="row">
-          <div className="col-lg-1 offset-lg-0">
+          <div className="col-lg-1 offset-lg-0 col-md-2 offset-md-0 col-sm-3 offset-sm-0 col-2 offset-0">
             <a href="/" className="logo">
               <img
                 src={require("../../logo.png")}
                 alt=""
-                width={"100px"}
+                width="100px"
                 height="100px"
               />
             </a>
           </div>
-          <div className="col-lg-3 offset-lg-1">
-            <div className="">
+          <div className="col-lg-3 offset-lg-1 col-md-2 offset-md-1 col-sm-2 offset-sm-1 col-3 offset-3">
+            <div>
               <input
                 type="text"
                 className={`search-input ${isSearchActive && "active"}`}
                 onChange={handleSearch}
                 value={search}
-                ref={(input) => input && input.focus()}
+                onFocus={() => setResActive(1)}
+                onBlur={handleBlur}
               />
+              <div
+                className={`cities ${
+                  isSearchActive && isResultActive && "active"
+                }`}
+              >
+                {cities.length > 0 &&
+                  cities.map((e, i) => {
+                    return (
+                      <Link
+                        to={`/weather/${e.lat}/${e.lon}`}
+                        onClick={() => {
+                          dispatch(
+                            fetchWeather({
+                              lat: e.lat,
+                              lon: e.lon,
+                              exclude: "minutely,hourly",
+                            })
+                          );
+                        }}
+                        className="city"
+                      >
+                        <div key={i} className="row">
+                          <div className="col-3 text-end">{e.country}</div>
+                          <div className="col-9">{e.name}</div>
+                        </div>
+                      </Link>
+                    );
+                  })}
+              </div>
             </div>
             <div
               className={`search-button ${
@@ -68,7 +122,7 @@ function Navbar() {
               </svg>
             </div>
           </div>
-          <div className="col-lg-1 offset-lg-5">
+          <div className="col-lg-1 offset-lg-5 col-md-1 offset-md-4 col-sm-1 offset-sm-3 d-none d-sm-block">
             <div className="row">
               <div className="col-5">
                 <button
@@ -173,7 +227,7 @@ function Navbar() {
               </button>
             </div>
           </div>
-          <div className="col-lg-1 offset-lg-0">
+          <div className="col-lg-1 offset-lg-0 col-md-2 offset-md-0 col-sm-1 offset-sm-1 d-none d-sm-block">
             <a
               href="https://github.com/emirhancirmencik"
               className="logo"

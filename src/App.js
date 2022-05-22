@@ -1,13 +1,14 @@
 import "./App.css";
 import Home from "./Components/Pages/Home";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Weather from "./Components/Pages/Weather";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route exact path="/" element={<Home />} />
+        <Route path="/weather/:lat/:lon" element={<Weather />} />
         <Route path="/users" element={<Users />} />
       </Routes>
     </Router>

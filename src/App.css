@@ -33,7 +33,7 @@ position: relative;
   font-size: 28px;
   padding: 15px;
   transition: width 0.3s ease;
-  border-radius: 50px 0px 0px 50px;
+  border-radius: 5px 5px 5px 5px;
   font-family: 'Quicksand', sans-serif !important;
   border-radius: 5px;
   
@@ -41,14 +41,14 @@ position: relative;
 
 .search-button.active {
   transform: translateX(-45px);
-  border-radius: 5px 0px 0px 5px;
+  border-radius: 5px 0px 0px 0px;
   outline: none;
 }
 
 .search-input.active {
   width: 200px !important;
   outline: none;
-  border-radius: 0px 50px 50px 0px;
+  border-radius: 0px 5px 0px 5px;
   transition: width 0.6s ease;
   background-color: #fff !important;
 }
@@ -126,5 +126,38 @@ position: relative;
   transform: translateX(27px);
 }
 
+.cities{
+  width: 245px;
+  display:none;
+  position: absolute;
+  top: calc(50% + 25px);
+  margin-left: -45px;
+  background-color: white;
+  border-radius: 0px 0px 5px 5px;
+}
+.city{
+  width: 245px;
+  height: 50px;
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: auto;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  text-decoration: none;
+  color:#111
+}
 
+.city:hover{
+  background-color: whitesmoke;
+  cursor: pointer;
+  border-radius: 0px 0px 5px 5px;
+  color:#1C2E4D
+}
 
+.city > .col-3{
+  background-color: #1C2E4D;
+}
+
+.cities.active{
+  display: block;
+}
