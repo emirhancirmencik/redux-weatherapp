@@ -15,7 +15,17 @@ export const fetchWeather = createAsyncThunk(
   "weather/getWeather",
   async (coordinates) => {
     const res = await axios(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=${coordinates.exclude}&appid=${process.env.REACT_APP_API}`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=${coordinates.exclude}&units=metric&appid=${process.env.REACT_APP_API}&lang=${coordinates.language}`
+    );
+    return res.data;
+  }
+);
+
+export const fetchCurrentWeather = createAsyncThunk(
+  "weather/getCurrentWeather",
+  async (coordinates) => {
+    const res = await axios(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${process.env.REACT_APP_API}&lang=${coordinates.language}`
     );
     return res.data;
   }
@@ -28,7 +38,9 @@ export const weatherSlice = createSlice({
     theme: "dark",
     cities: [],
     weather: [],
+    currentWeather: [],
     weatherStatus: "idle",
+    currentWeatherStatus: "idle",
   },
   reducers: {
     changeLanguage: (state) => {
@@ -52,6 +64,14 @@ export const weatherSlice = createSlice({
   extraReducers: {
     [fetchCities.fulfilled]: (state, action) => {
       state.cities = action.payload;
+    },
+    [fetchCurrentWeather.fulfilled]: (state, action) => {
+      state.currentWeather = action.payload;
+      state.currentWeatherStatus = "succeeded";
+    },
+    [fetchCurrentWeather.pending]: (state, action) => {
+      state.currentWeather = action.payload;
+      state.currentWeatherStatus = "pending";
     },
     [fetchWeather.fulfilled]: (state, action) => {
       state.weather = action.payload;

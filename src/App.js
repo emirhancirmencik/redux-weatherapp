@@ -9,18 +9,9 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/weather/:lat/:lon" element={<Weather />} />
-        <Route path="/users" element={<Users />} />
       </Routes>
     </Router>
   );
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
 
 export default App;

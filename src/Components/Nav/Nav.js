@@ -8,6 +8,7 @@ import {
   resetSearch,
   fetchCities,
   fetchWeather,
+  fetchCurrentWeather,
 } from "../../redux/weather/WeatherSlice";
 
 function Navbar() {
@@ -50,6 +51,20 @@ function Navbar() {
     }, 300);
   }
 
+  function handleClickCity(e) {
+    dispatch(
+      fetchWeather({
+        lat: e.lat,
+        lon: e.lon,
+        exclude: "minutely,hourly,alerts,current",
+        language: language,
+      })
+    );
+    dispatch(
+      fetchCurrentWeather({ lat: e.lat, lon: e.lon, language: language })
+    );
+  }
+
   return (
     <div className="navback">
       <div className="container">
@@ -84,15 +99,7 @@ function Navbar() {
                     return (
                       <Link
                         to={`/weather/${e.lat}/${e.lon}`}
-                        onClick={() => {
-                          dispatch(
-                            fetchWeather({
-                              lat: e.lat,
-                              lon: e.lon,
-                              exclude: "minutely,hourly",
-                            })
-                          );
-                        }}
+                        onClick={() => handleClickCity(e)}
                         className="city"
                       >
                         <div key={i} className="row">

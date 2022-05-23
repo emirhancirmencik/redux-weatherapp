@@ -161,3 +161,62 @@ position: relative;
 .cities.active{
   display: block;
 }
+
+.current-weather{
+  background: #1C2E4D;
+  color: #FFF;
+  padding: 15px;
+  border-radius: 15px;
+  font-family: 'Quicksand', sans-serif !important;
+}
+
+.current-weather-time{
+  color: #8CA8D5;
+}
+
+.current-weather-text{
+  font-weight: 500;
+}
+
+.temp-text{
+  margin-top: 0px !important;
+  font-weight: 300;
+  font-size: 75px;
+  
+  
+}
+
+.degree{
+  font-size: 40px;
+  top: -25px !important;
+  margin-left: 10px;
+}
+
+.icon{
+  margin-top: 0px !important;
+}
+
+.weather-main{
+  font-size: 20px !important;
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+
+.values{
+  margin-top: -12px;
+}
+
+.title{
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 768px) {
+  
+  .current-weather-other{
+    
+    padding-top: 5rem!important;
+    
+  }
+  
+}
+
