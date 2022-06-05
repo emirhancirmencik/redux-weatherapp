@@ -5,12 +5,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/weather/:lat/:lon" element={<Weather />} />
-      </Routes>
-    </Router>
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/weather/:lat/:lon" element={<Weather />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

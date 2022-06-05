@@ -97,16 +97,18 @@ function Navbar() {
                 {cities.length > 0 &&
                   cities.map((e, i) => {
                     return (
-                      <Link
-                        to={`/weather/${e.lat}/${e.lon}`}
-                        onClick={() => handleClickCity(e)}
-                        className="city"
-                      >
-                        <div key={i} className="row">
-                          <div className="col-3 text-end">{e.country}</div>
-                          <div className="col-9">{e.name}</div>
-                        </div>
-                      </Link>
+                      <div className="city" key={i}>
+                        <Link
+                          to={`/weather/${e.lat}/${e.lon}`}
+                          onClick={() => handleClickCity(e)}
+                          className="city"
+                        >
+                          <div className="row">
+                            <div className="col-3 text-end">{e.country}</div>
+                            <div className="col-9">{e.name}</div>
+                          </div>
+                        </Link>
+                      </div>
                     );
                   })}
               </div>
@@ -236,7 +238,7 @@ function Navbar() {
           </div>
           <div className="col-lg-1 offset-lg-0 col-md-2 offset-md-0 col-sm-1 offset-sm-1 d-none d-sm-block">
             <a
-              href="https://github.com/emirhancirmencik"
+              href="https://github.com/emirhancirmencik/redux-weatherapp"
               className="logo"
               target="_blank"
               rel="noreferrer"

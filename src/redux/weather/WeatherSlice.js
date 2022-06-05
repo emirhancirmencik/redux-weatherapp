@@ -35,7 +35,6 @@ export const weatherSlice = createSlice({
   name: "weather",
   initialState: {
     language: "tr",
-    theme: "dark",
     cities: [],
     weather: [],
     currentWeather: [],
@@ -70,7 +69,6 @@ export const weatherSlice = createSlice({
       state.currentWeatherStatus = "succeeded";
     },
     [fetchCurrentWeather.pending]: (state, action) => {
-      state.currentWeather = action.payload;
       state.currentWeatherStatus = "pending";
     },
     [fetchWeather.fulfilled]: (state, action) => {
