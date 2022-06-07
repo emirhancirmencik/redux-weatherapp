@@ -16,7 +16,7 @@ position: relative;
   cursor: pointer;
   font-size: 24px;
   transition: transform 0.3s ease;
-  background-color: #fff !important;
+  background-color: #fff;
   border-radius: 5px;
 }
 
@@ -25,7 +25,7 @@ position: relative;
   width: 50px;
   top: calc(50% - 25px);
   position: absolute;
-  background-color: #fff !important;
+  background-color: #fff;
   color: #1C2E4D;
   z-index: 0;
   border: 0;
@@ -36,7 +36,23 @@ position: relative;
   border-radius: 5px 5px 5px 5px;
   font-family: 'Quicksand', sans-serif !important;
   border-radius: 5px;
-  
+}
+
+.dark-mode-1{
+  background-color: #1C2E4D !important;
+  color:#566782;
+}
+
+.dark-mode-2{
+  background-color: #121F33!important;
+}
+
+.dark-mode-3{
+  background-color: #394557!important;
+}
+
+.dark-mode-4{
+  background-color: #566782!important;
 }
 
 .search-button.active {
@@ -50,7 +66,7 @@ position: relative;
   outline: none;
   border-radius: 0px 5px 0px 5px;
   transition: width 0.6s ease;
-  background-color: #fff !important;
+  background-color: #fff;
 }
 
 
@@ -122,13 +138,16 @@ margin-right: auto;
   border: 2px #FFF solid;
 }
 
+.button-back-dark{
+  border: 2px #394557 solid;
+}
+
 .button-slider{
   position:absolute;
   top: calc(50% - 10px);
   margin-left: 4px;
   z-index:3;
   background-color: #FFF;
-  order: 2px #FFF solid;
   width: 25px;
   height:20px;
   border-radius: 50px;
@@ -182,7 +201,7 @@ margin-right: auto;
 }
 
 .current-weather{
-  background-color: #1C2E4D !important;
+  background-color: #1C2E4D;
   color: #FFF;
   padding: 15px;
   border-radius: 15px;

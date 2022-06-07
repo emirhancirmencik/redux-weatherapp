@@ -1,8 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 function Footer() {
+  const theme = useSelector((state) => state.weather.theme);
   return (
-    <div className="footer bottom-0">
+    <div className={`footer bottom-0 ${theme && "dark-mode-2"}`}>
       made with{" "}
       <svg
         viewBox="0 0 512 512"

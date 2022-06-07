@@ -65,11 +65,21 @@ function Navbar() {
     );
   }
 
+  function handleChangeTheme() {
+    dispatch(changeTheme());
+
+    if (theme) {
+      document.body.style.backgroundColor = `#8ca8d5`;
+    } else {
+      document.body.style.backgroundColor = `#394557`;
+    }
+  }
+
   return (
-    <div className="navback">
+    <div className={`navback ${theme && `dark-mode-2`}`}>
       <div className="container">
         <div className="row">
-          <div className="col-lg-1 offset-lg-0 col-md-2 offset-md-0 col-sm-3 offset-sm-0 col-2 offset-0">
+          <div className="mt-2 col-lg-1 offset-lg-0 col-md-2 offset-md-0 col-sm-3 offset-sm-0 col-2 offset-0">
             <a href="/" className="logo">
               <img
                 src={require("../../logo.png")}
@@ -83,7 +93,9 @@ function Navbar() {
             <div>
               <input
                 type="text"
-                className={`search-input ${isSearchActive && "active"}`}
+                className={`search-input ${isSearchActive && "active"} ${
+                  theme && "dark-mode-1"
+                }`}
                 onChange={handleSearch}
                 value={search}
                 onFocus={() => setResActive(1)}
@@ -116,14 +128,14 @@ function Navbar() {
             <div
               className={`search-button ${
                 isSearchActive && "active"
-              } text-center`}
+              } text-center ${theme && "dark-mode-1"}`}
               onClick={handleButton}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
                 height="28"
-                fill="#1C2E4D"
+                fill={` ${theme ? "#566782" : "#1C2E4D"}`}
                 className="bi bi-search mt-2"
                 viewBox="0 0 16 16"
               >
@@ -135,12 +147,16 @@ function Navbar() {
             <div className="row">
               <div className="col-5">
                 <button
-                  className="mybutton"
+                  className={`mybutton`}
                   onClick={() => dispatch(changeLanguage())}
                 >
-                  <div className="button-back"></div>
                   <div
-                    className={`button-slider ${language === "tr" && "active"}`}
+                    className={`button-back ${theme && "button-back-dark"}`}
+                  ></div>
+                  <div
+                    className={`button-slider ${
+                      language === "tr" && "active"
+                    } ${theme && "dark-mode-4"}`}
                   ></div>
                   <div className="row">
                     <div className="col-5 flags">
@@ -199,13 +215,14 @@ function Navbar() {
             </div>
 
             <div className="col-12">
-              <button
-                className="mybutton"
-                onClick={() => dispatch(changeTheme())}
-              >
-                <div className="button-back"></div>
+              <button className="mybutton" onClick={() => handleChangeTheme()}>
                 <div
-                  className={`button-slider ${theme === "dark" && "active"}`}
+                  className={`button-back ${theme && "button-back-dark"}`}
+                ></div>
+                <div
+                  className={`button-slider ${theme && "active"} ${
+                    theme && "dark-mode-4"
+                  }`}
                 ></div>
                 <div className="row">
                   <div className="col-5  flags">
@@ -247,7 +264,7 @@ function Navbar() {
                 xmlns="http://www.w3.org/2000/svg"
                 width="50"
                 height="50"
-                fill="#fff"
+                fill={` ${theme ? "#394557" : "#fff"}`}
                 className="bi bi-github gitlogo"
                 viewBox="0 0 16 16"
               >

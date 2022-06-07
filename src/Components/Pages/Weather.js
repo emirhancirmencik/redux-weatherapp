@@ -37,6 +37,7 @@ function Weather() {
   const { lat, lon } = useParams();
   const dispatch = useDispatch();
   const weather = useSelector((state) => state.weather.weather);
+  const theme = useSelector((state) => state.weather.theme);
   const language = useSelector((state) => state.weather.language);
   const currentWeather = useSelector((state) => state.weather.currentWeather);
   const status = useSelector((state) => state.weather.weatherStatus);
@@ -53,18 +54,19 @@ function Weather() {
       "Thursday",
       "Friday",
       "Saturday",
+      "Pazar",
       "Pazartesi",
       "Salı",
       "Çarşamba",
       "Perşembe",
       "Cuma",
       "Cumartesi",
-      "Pazar",
     ];
     var date = new Date(t * 1000).toLocaleDateString("tr-TR");
     var time = new Date(t * 1000).toLocaleTimeString("tr-TR");
     var _day = new Date(t * 1000).getUTCDay();
-    _day += language === "tr" ? 6 : 0;
+    console.log(_day, _day + 6);
+    _day += language === "tr" ? 7 : 0;
 
     return { date, time, day: weekDay[_day] };
   }
@@ -123,22 +125,21 @@ function Weather() {
 
   console.log(weather);
 
-  if (
-    status === "pending" ||
-    currentWeatherStatus === "pending" ||
-    currentWeatherStatus === "idle" ||
-    status === "idle"
-  ) {
+  if (status === "pending" && currentWeatherStatus === "pending") {
     return <Loading />;
   } else {
     return (
       <div className="">
         <Nav />
         <div className="container">
-          <div className="row mt-5 current-weather">
+          <div className={`row mt-5 current-weather ${theme && `dark-mode-2`}`}>
             {currentWeatherStatus === "succeeded" ? (
               <>
-                <div className="col-xl-6 col-lg-6 col-md-7 col-12 current-weather current-weather-main">
+                <div
+                  className={`col-xl-6 col-lg-6 col-md-7 col-12 current-weather current-weather-main ${
+                    theme && `dark-mode-2`
+                  }`}
+                >
                   <div className="row">
                     <div>
                       <div className="current-weather-text">
@@ -255,7 +256,7 @@ function Weather() {
             )}
           </div>
 
-          <div className="row my-5 current-weather">
+          <div className={`row my-5 current-weather ${theme && `dark-mode-2`}`}>
             {status === "succeeded"
               ? weather.daily.map((day, index) => {
                   if (index > 0 && index < 7) {

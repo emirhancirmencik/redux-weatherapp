@@ -40,6 +40,7 @@ export const weatherSlice = createSlice({
     currentWeather: [],
     weatherStatus: "idle",
     currentWeatherStatus: "idle",
+    theme: "1",
   },
   reducers: {
     changeLanguage: (state) => {
@@ -50,11 +51,7 @@ export const weatherSlice = createSlice({
       }
     },
     changeTheme: (state) => {
-      if (state.theme === "light") {
-        state.theme = "dark";
-      } else {
-        state.theme = "light";
-      }
+      state.theme = !state.theme;
     },
     resetSearch: (state) => {
       state.cities = [];
