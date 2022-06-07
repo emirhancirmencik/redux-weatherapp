@@ -62,10 +62,10 @@ function Home() {
               </span>
               <hr />
               <div className="row">
-                <div className="col-6 offset-3 offset-md-0">
-                  <div className={`popular ${theme && `dark-mode-4`}`}>
+                <div className="col-12 col-xl-6">
+                  <div className={`popular ${theme && `dark-mode-1`}`}>
                     <Link
-                      className={`popular-city ${theme && `dark-mode-2`}`}
+                      className={`popular-city ${theme && `dark-mode-1`}`}
                       to={`/weather/51.5073219/-0.1276474`}
                     >
                       <div className="row">
@@ -77,10 +77,10 @@ function Home() {
                     </Link>
                   </div>
                 </div>
-                <div className="col-6 offset-3 offset-md-0">
-                  <div className={`popular ${theme && `dark-mode-4`}`}>
+                <div className="col-12 col-xl-6">
+                  <div className={`popular ${theme && `dark-mode-1`}`}>
                     <Link
-                      className={`popular-city ${theme && `dark-mode-2`}`}
+                      className={`popular-city ${theme && `dark-mode-1`}`}
                       to={`/weather/39.906217/116.3912757`}
                     >
                       <div className="row">
@@ -92,10 +92,10 @@ function Home() {
                     </Link>
                   </div>
                 </div>
-                <div className="col-6 offset-3 offset-md-0">
-                  <div className={`popular ${theme && `dark-mode-4`}`}>
+                <div className="col-12 col-xl-6">
+                  <div className={`popular ${theme && `dark-mode-1`}`}>
                     <Link
-                      className={`popular-city ${theme && `dark-mode-2`}`}
+                      className={`popular-city ${theme && `dark-mode-1`}`}
                       to={`/weather/40.7127281/-74.0060152`}
                     >
                       <div className="row">
@@ -105,10 +105,10 @@ function Home() {
                     </Link>
                   </div>
                 </div>
-                <div className="col-6 offset-3 offset-md-0">
-                  <div className={`popular ${theme && `dark-mode-4`}`}>
+                <div className="col-12 col-xl-6">
+                  <div className={`popular ${theme && `dark-mode-1`}`}>
                     <Link
-                      className={`popular-city ${theme && `dark-mode-2`}`}
+                      className={`popular-city ${theme && `dark-mode-1`}`}
                       to={`/weather/35.6828387/139.7594549`}
                     >
                       <div className="row">
@@ -118,10 +118,10 @@ function Home() {
                     </Link>
                   </div>
                 </div>
-                <div className="col-6 offset-3 offset-md-0">
-                  <div className={`popular ${theme && `dark-mode-4`}`}>
+                <div className="col-12 col-xl-6">
+                  <div className={`popular ${theme && `dark-mode-1`}`}>
                     <Link
-                      className={`popular-city ${theme && `dark-mode-2`}`}
+                      className={`popular-city ${theme && `dark-mode-1`}`}
                       to={`/weather/48.8566969/2.3514616`}
                     >
                       <div className="row">
@@ -131,10 +131,10 @@ function Home() {
                     </Link>
                   </div>
                 </div>
-                <div className="col-6 offset-3 offset-md-0">
-                  <div className={`popular ${theme && `dark-mode-4`}`}>
+                <div className="col-12 col-xl-6">
+                  <div className={`popular ${theme && `dark-mode-1`}`}>
                     <Link
-                      className={`popular-city ${theme && `dark-mode-2`}`}
+                      className={`popular-city ${theme && `dark-mode-1`}`}
                       to={`/weather/41.0096334/28.9651646`}
                     >
                       <div className="row">

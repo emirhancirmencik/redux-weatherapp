@@ -32,10 +32,14 @@ position: relative;
 }
 
 .popular:hover{
-  background-color: #8CA8D5 !important;
+  background-color: #121F33 !important;
   cursor: pointer;
   text-decoration: none;
   color:#1C2E4D !important
+}
+
+.popular.dark-mode-1:hover{
+  background-color: #111 !important;
 }
 
 .search-button{
@@ -50,6 +54,58 @@ position: relative;
   transition: transform 0.3s ease;
   background-color: #fff;
   border-radius: 5px;
+}
+
+.toggle-button{
+  height: 50px;
+  width: 50px;
+  z-index: 999;
+  position: absolute;
+  top: calc(50% - 25px);
+  transition: 0.5s ease;
+  cursor: pointer;
+  font-size: 24px;
+  transition: transform 0.5s ease;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.toggle-button.search-active{
+  transform: translateX(100vw);
+} 
+
+.toggle-buttons-container{
+margin-top: 15%!important;
+
+}
+
+.toggle-menu{
+left: 100vw;
+top:0px;
+transition: transform 0.5s ease;
+width: 100vw;
+height: 40vh;
+background-color: #8ca8d5;
+z-index: 888;
+border-radius: 0!important;
+}
+
+.toggle-buttons{
+  z-index: 998;
+}
+
+.x-btn{
+  position: fixed;
+    top: 0;
+    right: 0;
+    background:none;
+    z-index: 1030;
+    color:white;
+}
+
+.toggle-menu.active{
+  transform: translateX(-100vw);
+  position:fixed; 
 }
 
 .search-input{
@@ -72,7 +128,7 @@ position: relative;
 
 .dark-mode-1{
   background-color: #1C2E4D !important;
-  color:#566782;
+  color: whitesmoke;
 }
 
 .dark-mode-2{
