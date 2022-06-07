@@ -40,7 +40,7 @@ export const weatherSlice = createSlice({
     currentWeather: [],
     weatherStatus: "idle",
     currentWeatherStatus: "idle",
-    theme: "1",
+    theme: 0,
   },
   reducers: {
     changeLanguage: (state) => {

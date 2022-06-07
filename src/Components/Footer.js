@@ -10,7 +10,7 @@ function Footer() {
         viewBox="0 0 512 512"
         focusable="false"
         fill="#497BCD"
-        stroke-width="0"
+        strokeWidth="0"
         xmlns="http://www.w3.org/2000/svg"
         width={20}
       >

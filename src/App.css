@@ -6,6 +6,38 @@ height: 75px;
 position: relative;
 }
 
+.text-align-justify{
+  text-align: justify;
+}
+
+.popular-cities{
+  border-radius: 15px;
+  padding: 15px;
+ 
+}
+
+.home-radius{
+  border-radius: 15px!important;
+}
+
+.popular{
+  background-color: #ffffff;
+  padding: 3px;
+  margin-top: 3px;
+}
+
+.popular-city{  
+  text-decoration: none;
+  color:#1C2E4D
+}
+
+.popular:hover{
+  background-color: #8CA8D5 !important;
+  cursor: pointer;
+  text-decoration: none;
+  color:#1C2E4D !important
+}
+
 .search-button{
   height: 50px;
   width: 50px;
@@ -208,6 +240,65 @@ margin-right: auto;
   font-family: 'Quicksand', sans-serif !important;
 }
 
+.weather-photo{
+  height: 75vh;
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 15px ;
+  color: #fff;
+  cursor: pointer;
+  flex: 1!important;
+  margin: 10px;
+  position: relative !important;
+  transition: flex 0.7s ease-in;
+  border:#394557 solid 2px;
+  
+}
+
+.london{
+  background-image: url('../src/images/london.jpeg');
+}
+
+.bali{
+  background-image: url('../src/images/bali.jpeg');
+}
+
+.kyoto{
+  background-image: url('../src/images/kyoto.jpeg');
+}
+
+.morelia{
+  background-image: url('../src/images/morelia.jpeg');
+}
+
+.petersburg{
+  background-image: url('../src/images/petersburg.jpeg');
+}
+.istanbul{
+  background-image: url('../src/images/istanbul.jpeg');
+}
+
+.weather-photo h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  opacity: 0;
+  cursor: text;
+  
+}
+
+.weather-photo.active {
+  flex: 4!important
+}
+
+.weather-photo.active h3 {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.60);
+  
+}
+
 .current-weather-main{
   z-index: 3;
 }
@@ -243,6 +334,7 @@ margin-right: auto;
   margin-top: 20px;
   text-transform: capitalize;
   z-index: 1;
+  font-family: 'Quicksand', sans-serif !important;
 }
 
 .values{
@@ -376,5 +468,13 @@ margin-right: auto;
   
   .day-desc{
     text-align: center!important;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .weather-photo:nth-of-type(4),
+  .weather-photo:nth-of-type(5),
+  .weather-photo:nth-of-type(6) {
+    display: none;
   }
 }

@@ -145,7 +145,7 @@ function Navbar() {
           </div>
           <div className="col-lg-1 offset-lg-5 col-md-1 offset-md-4 col-sm-1 offset-sm-3 d-none d-sm-block">
             <div className="row">
-              <div className="col-5">
+              <div className="col-6">
                 <button
                   className={`mybutton`}
                   onClick={() => dispatch(changeLanguage())}
@@ -214,7 +214,7 @@ function Navbar() {
               </div>
             </div>
 
-            <div className="col-12">
+            <div className="col-12 col-md-6">
               <button className="mybutton" onClick={() => handleChangeTheme()}>
                 <div
                   className={`button-back ${theme && "button-back-dark"}`}

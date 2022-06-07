@@ -65,7 +65,6 @@ function Weather() {
     var date = new Date(t * 1000).toLocaleDateString("tr-TR");
     var time = new Date(t * 1000).toLocaleTimeString("tr-TR");
     var _day = new Date(t * 1000).getUTCDay();
-    console.log(_day, _day + 6);
     _day += language === "tr" ? 7 : 0;
 
     return { date, time, day: weekDay[_day] };
@@ -89,28 +88,16 @@ function Weather() {
     }
   }
 
-  if (currentWeatherStatus === "idle") {
-    dispatch(fetchCurrentWeather({ lat: lat, lon: lon, language: language }));
-  }
-
-  if (status === "idle") {
-    dispatch(
-      fetchWeather({
-        lat: lat,
-        lon: lon,
-        exclude: "minutely,hourly,alerts,current",
-        language: language,
-      })
-    );
-  }
-
   useEffect(() => {
     setTimeout(function () {
-      if (currentWeatherStatus !== "idle")
+      if (
+        currentWeatherStatus !== "idle" ||
+        currentWeatherStatus !== "succeeded"
+      )
         dispatch(
           fetchCurrentWeather({ lat: lat, lon: lon, language: language })
         );
-      if (status !== "idle") {
+      if (status !== "idle" || status !== "succeeded") {
         dispatch(
           fetchWeather({
             lat: lat,
@@ -121,7 +108,7 @@ function Weather() {
         );
       }
     }, 300);
-  }, [language]);
+  }, [language, lat, lon]);
 
   console.log(weather);
 
@@ -170,7 +157,7 @@ function Weather() {
                         </span>
                         <sup className="degree">°C</sup>
                       </div>
-                      <div className="col-lg-4 col-md-6 col-sm-4 col-4 offset-4 offset-sm-0 text-nowrap">
+                      <div className="col-lg-4 col-md-6 col-sm-4 col-4 offset-4 offset-sm-0">
                         <div className="weather-main title">
                           {currentWeather.weather[0].description}
                         </div>
@@ -272,7 +259,9 @@ function Weather() {
                             </div>
                           </div>
                         </div>
-                        <div className="day-container">
+                        <div
+                          className={`day-container ${theme && `dark-mode-3`}`}
+                        >
                           <div className="row">
                             <div className="col-12 col-md-6 text-center">
                               <img
@@ -282,7 +271,11 @@ function Weather() {
                                 )}
                                 alt="Weather icon"
                                 height="75px"
-                                className="bg-opacity-25 bg-black day-icon"
+                                className={`bg-black day-icon  ${
+                                  theme === true
+                                    ? "bg-opacity-10"
+                                    : "bg-opacity-25"
+                                }`}
                               />
                             </div>
                             <div className="col-2 offset-3 col-md-6 offset-md-0 text-center">
@@ -300,7 +293,13 @@ function Weather() {
                           </div>
 
                           <div className="row day-temp-container">
-                            <div className="col-6 bg-opacity-10 bg-black day-max-border">
+                            <div
+                              className={`col-6 ps-4 bg-opacity-10 bg-black day-max-border  ${
+                                theme === true
+                                  ? "bg-opacity-25"
+                                  : "bg-opacity-10"
+                              } `}
+                            >
                               <div className="text-nowrap text-center">
                                 Min
                                 <img
@@ -314,7 +313,13 @@ function Weather() {
                               </span>
                               <sup className="day-max-deg">°C</sup>
                             </div>
-                            <div className="col-6 ps-4 bg-opacity-10 bg-white day-min-border">
+                            <div
+                              className={`col-6 ps-4 ${
+                                theme === true
+                                  ? "bg-opacity-10"
+                                  : "bg-opacity-25"
+                              } bg-white day-min-border`}
+                            >
                               <div className="text-nowrap text-center">
                                 Max
                                 <img
