@@ -112,8 +112,6 @@ function Weather() {
     }, 300);
   }, [language, lat, lon]);
 
-  console.log(weather);
-
   if (status === "error" || currentWeatherStatus === "error") {
     return <Error error={error.toUpperCase()} />;
   } else if (status === "pending" && currentWeatherStatus === "pending") {

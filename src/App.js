@@ -11,7 +11,10 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/weather/:lat/:lon" element={<Weather />} />
-          <Route path="*" element={<Error error="PAGE NOT FOUND" />} />
+          <Route
+            path="*"
+            element={<Error error="PAGE NOT FOUND" status={200} />}
+          />
         </Routes>
       </Router>
     </div>

@@ -5,7 +5,7 @@ export const fetchCities = createAsyncThunk(
   "weather/getCities",
   async (city) => {
     const res = await axios(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${process.env.REACT_APP_API}`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${process.env.REACT_APP_API}`
     );
     return res.data;
   }
