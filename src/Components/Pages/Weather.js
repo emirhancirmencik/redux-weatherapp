@@ -259,10 +259,10 @@ function Weather() {
                       >
                         <div
                           className={` ${
-                            theme === true
-                              ? "bg-opacity-25 bg-black text-white"
-                              : "bg-white bg-opacity-75 text-dark"
-                          }  day`}
+                            theme && "bg-opacity-25 bg-black text-white"
+                          } ${
+                            !theme && "bg-white bg-opacity-75 text-dark"
+                          } day`}
                         >
                           <div className="row text-center ">
                             <div className="col-12 day-date">
@@ -272,9 +272,9 @@ function Weather() {
                         </div>
                         <div
                           className={`${
-                            theme === true
-                              ? "bg-opacity-10 bg-black text-white"
-                              : "bg-white bg-opacity-50 text-dark"
+                            theme && "bg-opacity-10 bg-black text-white"
+                          } ${
+                            !theme && "bg-white bg-opacity-50 text-dark"
                           } day-container ${theme && `dark-mode-3`}`}
                         >
                           <div className="row">
@@ -287,10 +287,8 @@ function Weather() {
                                 alt="Weather icon"
                                 height="75px"
                                 className={`bg-black day-icon  ${
-                                  theme === true
-                                    ? "bg-opacity-10"
-                                    : "bg-opacity-25"
-                                }`}
+                                  theme && "bg-opacity-10"
+                                } ${!theme && "bg-opacity-25"}`}
                               />
                             </div>
                             <div className="col-3 offset-2 col-md-6 offset-md-0 text-center">
@@ -310,12 +308,10 @@ function Weather() {
                           <div className={`row day-temp-container`}>
                             <div
                               className={`col-6 ps-4 bg-opacity-10 ${
-                                theme === true ? "bg-black" : "bg-white"
-                              } day-max-border  ${
-                                theme === true
-                                  ? "bg-opacity-25"
-                                  : "bg-opacity-50"
-                              } `}
+                                theme && "bg-black"
+                              } ${!theme && "bg-white"} day-max-border  ${
+                                theme && "bg-opacity-25"
+                              } ${!theme && "bg-opacity-50"}`}
                             >
                               <div className="text-nowrap text-center">
                                 Min
@@ -332,12 +328,10 @@ function Weather() {
                             </div>
                             <div
                               className={`col-6 ps-4 ${
-                                theme === true
-                                  ? "bg-opacity-10"
-                                  : "bg-opacity-25"
-                              } ${
-                                theme === true ? "bg-black" : "bg-white"
-                              } day-min-border`}
+                                theme && "bg-opacity-10"
+                              } ${!theme && "bg-opacity-25"} ${
+                                theme && "bg-black"
+                              } ${!theme && "bg-white"} day-min-border`}
                             >
                               <div className="text-nowrap text-center">
                                 Max
