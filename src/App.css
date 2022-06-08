@@ -237,7 +237,7 @@ margin-right: auto;
 
 .button-slider{
   position:absolute;
-  top: calc(50% - 12  px);
+  top: calc(50% - 12px);
   margin-left: 3px;
   z-index:3;
   background-color: #FFF;
