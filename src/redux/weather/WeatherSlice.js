@@ -44,7 +44,7 @@ export const weatherSlice = createSlice({
     currentWeatherStatus: "idle",
     theme: localStorage.getItem("theme")
       ? Number(localStorage.getItem("theme"))
-      : 0,
+      : false,
   },
   reducers: {
     changeLanguage: (state) => {

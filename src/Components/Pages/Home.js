@@ -67,7 +67,7 @@ function Home() {
                     className={`popular home-radius ${theme && `dark-mode-1`}`}
                   >
                     <Link
-                      className={`popular-city home-radius${
+                      className={`popular-city home-radius ${
                         theme && `dark-mode-1`
                       }`}
                       to={`/weather/51.5073219/-0.1276474`}
