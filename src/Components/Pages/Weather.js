@@ -10,6 +10,7 @@ import {
 } from "../../redux/weather/WeatherSlice";
 
 import Loading from "./Loading";
+import Error from "./Error";
 
 import csDay from "../../icons/01d.svg";
 import csNight from "../../icons/01n.svg";
@@ -41,6 +42,7 @@ function Weather() {
   const language = useSelector((state) => state.weather.language);
   const currentWeather = useSelector((state) => state.weather.currentWeather);
   const status = useSelector((state) => state.weather.weatherStatus);
+  const error = useSelector((state) => state.weather.error);
   const currentWeatherStatus = useSelector(
     (state) => state.weather.currentWeatherStatus
   );
@@ -112,7 +114,9 @@ function Weather() {
 
   console.log(weather);
 
-  if (status === "pending" && currentWeatherStatus === "pending") {
+  if (status === "error" || currentWeatherStatus === "error") {
+    return <Error error={error.toUpperCase()} />;
+  } else if (status === "pending" && currentWeatherStatus === "pending") {
     return <Loading />;
   } else {
     return (
@@ -294,7 +298,9 @@ function Weather() {
 
                           <div className="row day-temp-container">
                             <div
-                              className={`col-6 ps-4 bg-opacity-10 bg-black day-max-border  ${
+                              className={`col-6 ps-4 bg-opacity-10 ${
+                                theme === true ? "bg-black" : "bg-white"
+                              } day-max-border  ${
                                 theme === true
                                   ? "bg-opacity-25"
                                   : "bg-opacity-10"
@@ -316,9 +322,11 @@ function Weather() {
                             <div
                               className={`col-6 ps-4 ${
                                 theme === true
-                                  ? "bg-opacity-10"
+                                  ? "bg-opacity-50"
                                   : "bg-opacity-25"
-                              } bg-white day-min-border`}
+                              } ${
+                                theme === true ? "bg-black" : "bg-white"
+                              } day-min-border`}
                             >
                               <div className="text-nowrap text-center">
                                 Max

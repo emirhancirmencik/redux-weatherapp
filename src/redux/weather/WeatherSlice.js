@@ -34,20 +34,26 @@ export const fetchCurrentWeather = createAsyncThunk(
 export const weatherSlice = createSlice({
   name: "weather",
   initialState: {
-    language: "tr",
+    language: localStorage.getItem("language")
+      ? localStorage.getItem("language")
+      : "tr",
     cities: [],
     weather: [],
     currentWeather: [],
     weatherStatus: "idle",
     currentWeatherStatus: "idle",
-    theme: 0,
+    theme: localStorage.getItem("theme")
+      ? Number(localStorage.getItem("theme"))
+      : 0,
   },
   reducers: {
     changeLanguage: (state) => {
       if (state.language === "tr") {
         state.language = "en";
+        localStorage.setItem("language", "en");
       } else {
         state.language = "tr";
+        localStorage.setItem("language", "tr");
       }
     },
     changeTheme: (state) => {
@@ -68,12 +74,20 @@ export const weatherSlice = createSlice({
     [fetchCurrentWeather.pending]: (state, action) => {
       state.currentWeatherStatus = "pending";
     },
+    [fetchCurrentWeather.rejected]: (state, action) => {
+      state.currentWeatherStatus = "error";
+      state.error = action.error.message;
+    },
     [fetchWeather.fulfilled]: (state, action) => {
       state.weather = action.payload;
       state.weatherStatus = "succeeded";
     },
     [fetchWeather.pending]: (state, action) => {
       state.weatherStatus = "pending";
+    },
+    [fetchWeather.rejected]: (state, action) => {
+      state.weatherStatus = "error";
+      state.error = action.error.message;
     },
   },
 });

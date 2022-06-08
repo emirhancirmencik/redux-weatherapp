@@ -39,7 +39,7 @@ function Home() {
                 ? "'un verilerini ve"
                 : "'s data and photos from"}{" "}
               <a
-                href="https://www.pexels.com//"
+                href="https://www.pexels.com/"
                 className="text-decoration-none footer-text"
                 target="_blank"
                 rel="noreferrer"

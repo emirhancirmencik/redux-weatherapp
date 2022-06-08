@@ -346,7 +346,7 @@ margin-right: auto;
 }
 
 .weather-photo.active {
-  flex: 4!important
+  flex: 5!important
 }
 
 .weather-photo.active h3 {
@@ -373,6 +373,19 @@ margin-right: auto;
   margin-top: 0px !important;
   font-weight: 300;
   font-size: 75px;
+}
+
+.error{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.error-text{
+  margin: auto;
+  font-size: 50px;
+  color: #121F33;
+  font-family: 'Quicksand', sans-serif !important;
 }
 
 .degree{
