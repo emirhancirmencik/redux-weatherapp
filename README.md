@@ -1,6 +1,8 @@
 # React Redux Weather App
 
-![React Weather App Gif](./demo.gif)
+![React Weather Light Theme](./demo1.png)
+
+![React Weather Light Theme](./demo2.png)
 
 [Live](https://ec-redux-weather.netlify.app)
 
