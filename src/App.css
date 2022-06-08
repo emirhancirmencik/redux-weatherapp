@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 .navback{
-background-color: #1C2E4D;
+background-color: #41A4FF;
 height: 75px;
 position: relative;
 }
@@ -28,7 +28,7 @@ position: relative;
 
 .popular-city{  
   text-decoration: none;
-  color:#1C2E4D
+  color:#111
 }
 
 .popular:hover{
@@ -39,7 +39,8 @@ position: relative;
 }
 
 .popular.dark-mode-1:hover{
-  background-color: #111 !important;
+  background-color: #8ca8d5 !important;
+  
 }
 
 .search-button{
@@ -114,7 +115,7 @@ border-radius: 0!important;
   top: calc(50% - 25px);
   position: absolute;
   background-color: #fff;
-  color: #1C2E4D;
+  color: #111;
   z-index: 0;
   border: 0;
   outline: none;
@@ -128,19 +129,22 @@ border-radius: 0!important;
 
 .dark-mode-1{
   background-color: #1C2E4D !important;
-  color: whitesmoke;
+  color: whitesmoke!important;
 }
 
 .dark-mode-2{
   background-color: #121F33!important;
+  color: whitesmoke!important;
 }
 
 .dark-mode-3{
   background-color: #394557!important;
+  color: whitesmoke!important;
 }
 
 .dark-mode-4{
   background-color: #566782!important;
+  color: whitesmoke!important;
 }
 
 .search-button.active {
@@ -190,8 +194,12 @@ margin-right: auto;
   box-shadow: 0px;
   border: 0;
   position: relative;
-  background-color: #1C2E4D;
 }
+
+.button-back-dark{
+  background-color: #121F33!important;
+}
+
 
 .mybutton:active{
   box-shadow: 0px;
@@ -218,26 +226,23 @@ margin-right: auto;
   top: calc(50% - 12px);
   margin-left: 3px;
   z-index:1;
-  background-color: #1C2E4D;
+  background-color: #41A4FF;
   width: 54px;
   height:24px;
   border-radius: 50px;
   content: '';
-  border: 2px #FFF solid;
+  border: 2x #FFF solid;
 }
 
-.button-back-dark{
-  border: 2px #394557 solid;
-}
 
 .button-slider{
   position:absolute;
-  top: calc(50% - 10px);
-  margin-left: 4px;
+  top: calc(50% - 12  px);
+  margin-left: 3px;
   z-index:3;
   background-color: #FFF;
   width: 25px;
-  height:20px;
+  height:24px;
   border-radius: 50px;
   
   content: '';
@@ -245,7 +250,7 @@ margin-right: auto;
 }
 
 .button-slider.active{
-  transform: translateX(27px);
+  transform: translateX(29px);
 }
 
 .cities{
@@ -289,11 +294,11 @@ margin-right: auto;
 }
 
 .current-weather{
-  background-color: #1C2E4D;
-  color: #FFF;
+  background-color: #41A4FF;
+  color:#1C2E4D;
   padding: 15px;
   border-radius: 15px;
-  font-family: 'Quicksand', sans-serif !important;
+  font-family: 'Quicksand', sans-serif !important;  
 }
 
 .weather-photo{
@@ -360,12 +365,12 @@ margin-right: auto;
 }
 
 .current-weather-time{
-  color: #8CA8D5;
+  color: #375D99;
   font-size: 22px;
 }
 
 .current-weather-text{
-  font-weight: 500;
+  font-weight: 600;
   font-size:22px;
 }
 
@@ -412,12 +417,12 @@ margin-right: auto;
 }
 
 .title{
-  font-weight: 600;
+  font-weight: 900!important;
 }
 
 .day-container{
-  background-color:  #375D99;
-  color: #FFF;
+  background-color: #8CA8D5;
+  color: #1C2E4D;
   padding: 15px;
   border-radius: 0px 0px 15px 15px;
   font-family: 'Quicksand', sans-serif !important;
@@ -428,20 +433,20 @@ margin-right: auto;
 .footer{
   height: 50px;
   width: 100%;
-  background-color: #1C2E4D;
+  background-color: #41A4FF;
   text-align: center!important;
   color: white;
   padding: 12.5px;
   display: block;
   margin-top: 96px;
+  font-weight: 600;
 }
 
 .footer>a:hover{
-  color: #375D99!important;
+  color: #394557!important;
 }
 
 .day{
-  background-color: #375D99!important;
   border-radius: 15px 15px 0px 0px;
 }
 
@@ -452,15 +457,15 @@ margin-right: auto;
 
 
 .day-date{
-  color: #FFF;
+  
   padding: 15px;
   font-family: 'Quicksand', sans-serif !important;
-  font-weight:300px;
+  font-weight:600;
   font-size:22px;
 }
 
 .footer-text{
-  color:#8CA8D5
+  color:#566782
 }
 
 .day-min-border{
@@ -472,10 +477,9 @@ margin-right: auto;
 
 .day-temp-container{
   position:absolute;
-  bottom: -5px;
+  bottom: 0;
   font-size: 20px;
   text-align: center;
-  background-color: #375D99;
   width:100%;
   left:12px;
   border-radius: 0px 0px 15px 15px;
@@ -521,7 +525,7 @@ margin-right: auto;
   
 }
 
-@media only screen and (min-width: 960px){
+@media only screen and (min-width: 0px){
   .current-weather-boxes{
     margin-top: 1rem !important;
   }

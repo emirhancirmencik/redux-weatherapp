@@ -92,7 +92,7 @@ function Navbar() {
   }
 
   if (!theme) {
-    document.body.style.backgroundColor = `#8ca8d5`;
+    document.body.style.backgroundColor = `#fff`;
   } else {
     document.body.style.backgroundColor = `#394557`;
   }

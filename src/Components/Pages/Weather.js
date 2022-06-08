@@ -137,10 +137,12 @@ function Weather() {
                           : "CURRENT WEATHER"}
                       </div>
                     </div>
-                    <div className="current-weather-time">
-                      {calcTime(currentWeather.dt).time.slice(0, 5)}{" "}
-                      {currentWeather.name.toUpperCase()},{" "}
-                      {currentWeather.sys.country}
+                    <div className="current-weather-time mt-1">
+                      <span className="current-weather-time">
+                        {calcTime(currentWeather.dt).time.slice(0, 5)}{" "}
+                        {currentWeather.name.toUpperCase()},{" "}
+                        {currentWeather.sys.country}
+                      </span>
                     </div>
                     <div className="row current-weather-boxes">
                       <div className="col-lg-4 col-md-12 col-sm-4 col-6 text-center icon">
@@ -151,10 +153,11 @@ function Weather() {
                           )}
                           alt="Weather icon"
                           height="125px"
+                          className="bg-black bg-opacity-25 text-light home-radius p-2"
                         />
                       </div>
-                      <div className="col-lg-4 offset-lg-0 offset-md-1 col-md-5 col-sm-4 col-6 temp-text">
-                        <span className="temp-text">
+                      <div className="col-lg-4 offset-lg-0 offset-md-1 col-md-5 col-sm-4 col-6 temp-text ">
+                        <span className="temp-text ">
                           {Math.round(currentWeather.main.temp)}
                         </span>
                         <sup className="degree">°C</sup>
@@ -254,15 +257,25 @@ function Weather() {
                         className="col-xl-2 col-lg-4 col-md-6 col-12 my-4"
                         key={index}
                       >
-                        <div className="bg-opacity-10 bg-info day">
+                        <div
+                          className={` ${
+                            theme === true
+                              ? "bg-opacity-25 bg-black text-white"
+                              : "bg-white bg-opacity-75 text-dark"
+                          }  day`}
+                        >
                           <div className="row text-center ">
-                            <div className="col-12 day-date ">
+                            <div className="col-12 day-date">
                               {calcTime(day.dt).day}
                             </div>
                           </div>
                         </div>
                         <div
-                          className={`day-container ${theme && `dark-mode-3`}`}
+                          className={`${
+                            theme === true
+                              ? "bg-opacity-10 bg-black text-white"
+                              : "bg-white bg-opacity-50 text-dark"
+                          } day-container ${theme && `dark-mode-3`}`}
                         >
                           <div className="row">
                             <div className="col-12 col-md-6 text-center">
@@ -280,7 +293,7 @@ function Weather() {
                                 }`}
                               />
                             </div>
-                            <div className="col-2 offset-3 col-md-6 offset-md-0 text-center">
+                            <div className="col-3 offset-2 col-md-6 offset-md-0 text-center">
                               {" "}
                               <div className="day-temp-text text-center">
                                 <span className="day-temp-text">
@@ -294,14 +307,14 @@ function Weather() {
                             </div>
                           </div>
 
-                          <div className="row day-temp-container">
+                          <div className={`row day-temp-container`}>
                             <div
                               className={`col-6 ps-4 bg-opacity-10 ${
                                 theme === true ? "bg-black" : "bg-white"
                               } day-max-border  ${
                                 theme === true
                                   ? "bg-opacity-25"
-                                  : "bg-opacity-10"
+                                  : "bg-opacity-50"
                               } `}
                             >
                               <div className="text-nowrap text-center">
@@ -320,7 +333,7 @@ function Weather() {
                             <div
                               className={`col-6 ps-4 ${
                                 theme === true
-                                  ? "bg-opacity-50"
+                                  ? "bg-opacity-10"
                                   : "bg-opacity-25"
                               } ${
                                 theme === true ? "bg-black" : "bg-white"
